@@ -1,0 +1,567 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Comic+Neue:wght@400;700&display=swap');
+
+body {
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad0c4, #a1c4fd);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    font-family: 'Comic Neue', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #333;
+    overflow: hidden;
+    position: relative;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Estrelas animadas no fundo */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.3; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1.2); }
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #333;
+    width: 90%;
+    max-width: 500px;
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    border: 8px solid #ff9a00;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Animações e Utilitários */
+.fade-in { animation: fadeIn 0.8s ease-in-out; }
+@keyframes fadeIn { 
+    from { opacity: 0; transform: translateY(30px) scale(0.9); } 
+    to { opacity: 1; transform: translateY(0) scale(1); } 
+}
+
+.shake { animation: shake 0.5s; color: #ff4757; }
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
+
+.bounce { animation: bounce 0.5s; }
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.hidden { display: none !important; }
+
+/* Tipografia melhorada para crianças */
+h1 { 
+    font-family: 'Fredoka One', cursive; 
+    color: #ff6b6b; 
+    font-size: 2.8rem; 
+    margin: 0; 
+    text-shadow: 3px 3px 0 #ffd166;
+    background: linear-gradient(45deg, #ff6b6b, #ff9a00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-family: 'Fredoka One', cursive;
+    color: #5f27cd;
+    font-size: 2.2rem;
+    text-shadow: 2px 2px 0 #a29bfe;
+}
+
+.subtitle { 
+    color: #666; 
+    margin-top: 5px; 
+    font-weight: bold;
+    font-size: 1.3rem;
+    background: linear-gradient(45deg, #54a0ff, #5f27cd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.rules-box { 
+    background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+    border-radius: 20px; 
+    padding: 15px; 
+    margin: 20px 0; 
+    font-size: 1rem; 
+    color: #333;
+    text-align: left;
+    border: 3px dashed #5f27cd;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.rules-box p { 
+    margin: 0 0 10px 0;
+    font-weight: bold;
+    color: #5f27cd;
+}
+
+.rules-box ul { 
+    margin: 0;
+    padding-left: 20px;
+}
+
+.rules-box li {
+    margin-bottom: 5px;
+}
+
+/* Inputs e Header */
+.input-group { 
+    margin: 20px 0;
+    text-align: left;
+}
+
+.input-group label { 
+    display: block; 
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #5f27cd;
+    font-size: 1.1rem;
+}
+
+.input-group input { 
+    width: 100%; 
+    padding: 15px; 
+    border: 3px solid #ffd166; 
+    border-radius: 15px; 
+    margin-top: 5px; 
+    box-sizing: border-box; 
+    font-size: 1.1rem;
+    font-family: 'Comic Neue', cursive;
+    transition: all 0.3s;
+    background-color: #fff9e6;
+}
+
+.input-group input:focus { 
+    outline: none;
+    border-color: #5f27cd;
+    box-shadow: 0 0 0 3px rgba(95, 39, 205, 0.2);
+    transform: scale(1.02);
+}
+
+/* Sistema de Vidas */
+.lives-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+    gap: 10px;
+}
+
+.lives-container span {
+    font-weight: bold;
+    color: #ff6b6b;
+    font-size: 1.2rem;
+}
+
+.life {
+    width: 40px;
+    height: 40px;
+    background-color: #ff6b6b;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    transition: all 0.3s;
+}
+
+.life.lost {
+    background-color: #ccc;
+    transform: scale(0.7);
+    opacity: 0.5;
+}
+
+/* Header do Jogo */
+.header-bar { 
+    display: flex; 
+    justify-content: space-between; 
+    font-weight: bold; 
+    color: #555; 
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+    padding: 12px 20px;
+    border-radius: 15px;
+    border: 3px solid #5f27cd;
+}
+
+.timer, .question-count { 
+    font-size: 1.2rem;
+    color: #5f27cd;
+    font-weight: bold;
+}
+
+.progress-bar { 
+    width: 100%; 
+    height: 20px; 
+    background-color: #eee; 
+    border-radius: 10px; 
+    margin-bottom: 25px; 
+    overflow: hidden; 
+    border: 3px solid #ffd166;
+}
+
+.progress-fill { 
+    height: 100%; 
+    background: linear-gradient(90deg, #ff9a00, #ff6b6b);
+    width: 0%; 
+    transition: width 0.5s ease-in-out;
+    border-radius: 8px;
+}
+
+.question-text { 
+    font-size: 1.6rem; 
+    font-weight: 900; 
+    margin-bottom: 30px; 
+    color: #2d3436; 
+    min-height: 80px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #ffecd2, #fcb69f);
+    border-radius: 20px;
+    border: 3px solid #ff9a00;
+    font-family: 'Fredoka One', cursive;
+    line-height: 1.4;
+}
+
+/* Botões da Grade */
+.options-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 15px; 
+}
+
+.btn {
+    border: none; 
+    padding: 20px; 
+    font-size: 1.3rem; 
+    font-weight: bold; 
+    color: white;
+    border-radius: 20px; 
+    cursor: pointer; 
+    transition: all 0.2s;
+    box-shadow: 0 6px 0 rgba(0,0,0,0.2);
+    font-family: 'Fredoka One', cursive;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:active { 
+    transform: translateY(6px); 
+    box-shadow: 0 0 0 rgba(0,0,0,0.2);
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+/* Cores Padrão dos Botões */
+.btn-opt:nth-child(1) { 
+    background: linear-gradient(135deg, #ff9f43, #ff7f00);
+    border: 3px solid #ff7f00;
+}
+.btn-opt:nth-child(2) { 
+    background: linear-gradient(135deg, #54a0ff, #2e86de);
+    border: 3px solid #2e86de;
+}
+.btn-opt:nth-child(3) { 
+    background: linear-gradient(135deg, #5f27cd, #341f97);
+    border: 3px solid #341f97;
+}
+.btn-opt:nth-child(4) { 
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    border: 3px solid #ee5a24;
+}
+
+/* Estilo do Botão Escondido */
+.sneaky-btn {
+    position: absolute;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+    color: #333;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 15px;
+    z-index: 5;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    font-family: 'Fredoka One', cursive;
+    border: 3px dashed #ff6b6b;
+    animation: floatBtn 4s ease-in-out infinite;
+}
+
+@keyframes floatBtn {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.sneaky-btn.wrong-hidden {
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.9), rgba(255, 107, 107, 0.7));
+    border: 3px dashed #ee5a24;
+}
+
+.sneaky-btn:hover {
+    transform: scale(1.3);
+    z-index: 100;
+}
+
+/* Botões de Menu */
+.btn-start { 
+    background: linear-gradient(135deg, #2ebf91, #1dd1a1);
+    width: 100%; 
+    font-size: 1.5rem; 
+    margin-top: 10px; 
+    border: 4px solid #10ac84;
+    padding: 20px;
+}
+
+.btn-rank { 
+    background: linear-gradient(135deg, #feca57, #ff9f43);
+    width: 100%; 
+    margin-top: 15px; 
+    color: #333; 
+    border: 4px solid #ff9f43;
+    padding: 18px;
+}
+
+.secondary { 
+    background: linear-gradient(135deg, #ddd, #bbb); 
+    color: #555; 
+    box-shadow: 0 6px 0 #999; 
+    border: 4px solid #bbb;
+}
+
+.restart-btn { 
+    background: linear-gradient(135deg, #ff6b6b, #ff3838); 
+    color: white; 
+    padding: 18px 30px; 
+    font-size: 1.3rem; 
+    border-radius: 50px; 
+    border: 4px solid #ff3838;
+    width: 100%; 
+    margin-top: 20px; 
+    cursor: pointer; 
+    font-family: 'Fredoka One', cursive;
+}
+
+.restart-btn:hover {
+    background: linear-gradient(135deg, #ff3838, #ff0000);
+}
+
+/* Ranking */
+#ranking-list { 
+    list-style: none; 
+    padding: 0; 
+    text-align: left; 
+    max-height: 250px; 
+    overflow-y: auto;
+    margin: 20px 0;
+}
+
+#ranking-list li { 
+    background: linear-gradient(135deg, #f1f2f6, #dfe4ea);
+    margin-bottom: 10px; 
+    padding: 15px; 
+    border-radius: 15px; 
+    display: flex; 
+    justify-content: space-between;
+    border: 3px solid #a1c4fd;
+    transition: all 0.3s;
+}
+
+#ranking-list li:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Animação de Brilho */
+.glow-trap {
+    animation: glowing 0.8s infinite alternate;
+    border: 5px solid #fff !important;
+    transform: scale(1.1);
+    z-index: 2;
+    position: relative;
+    box-shadow: 0 0 30px #ff00de;
+}
+
+@keyframes glowing {
+    0% { 
+        box-shadow: 0 0 10px #fff, 0 0 20px #ff00de, 0 0 30px #ff00de;
+    }
+    50% { 
+        box-shadow: 0 0 15px #fff, 0 0 30px #ff00de, 0 0 45px #ff00de;
+    }
+    100% { 
+        box-shadow: 0 0 10px #fff, 0 0 20px #ff00de, 0 0 30px #ff00de;
+    }
+}
+
+/* Estilo do ranking para mostrar quem está no topo */
+#ranking-list li.top-player {
+    border-left: 8px solid #feca57;
+    background: linear-gradient(135deg, #fff9e6, #ffecb3);
+    font-weight: bold;
+}
+
+#ranking-list li:nth-child(1) { 
+    font-size: 1.3rem; 
+    background: linear-gradient(135deg, #fff9e6, #ffd166);
+}
+#ranking-list li:nth-child(2) { 
+    font-size: 1.2rem; 
+    background: linear-gradient(135deg, #f1f2f6, #dfe4ea);
+}
+#ranking-list li:nth-child(3) { 
+    font-size: 1.1rem; 
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
+/* Confetes */
+.confetti {
+    position: fixed;
+    width: 15px;
+    height: 15px;
+    opacity: 0;
+    z-index: 9999;
+    animation: confettiFall 5s linear forwards;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(1000px) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+        max-width: 95%;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    .question-text {
+        font-size: 1.3rem;
+        padding: 15px;
+    }
+    
+    .btn {
+        padding: 15px;
+        font-size: 1.1rem;
+    }
+    
+    .options-grid {
+        gap: 10px;
+    }
+    
+    /* Adicione ao seu style.css */
+
+/* Garantir que o container do jogo tem z-index alto */
+#game-screen .container {
+    z-index: 100;
+    position: relative;
+}
+
+/* Melhorar o posicionamento dos botões escondidos */
+.sneaky-btn {
+    position: fixed !important; /* Mudado de absolute para fixed */
+    z-index: 1000 !important;
+    pointer-events: auto !important;
+    min-width: 120px;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    text-align: center;
+    background: linear-gradient(135deg, #ff9a00, #ff6b6b) !important;
+    color: white !important;
+    border: 3px solid white !important;
+    border-radius: 20px !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3) !important;
+    cursor: pointer;
+    animation: floatBtn 3s ease-in-out infinite, pulseBtn 2s infinite alternate;
+    font-family: 'Fredoka One', cursive;
+    opacity: 0.9;
+    transition: all 0.3s;
+}
+
+.sneaky-btn:hover {
+    opacity: 1;
+    transform: scale(1.15) !important;
+    z-index: 1001 !important;
+}
+
+.sneaky-btn.wrong-hidden {
+    background: linear-gradient(135deg, #ff6b6b, #ff3838) !important;
+    border: 3px dashed white !important;
+}
+
+@keyframes floatBtn {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(3deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes pulseBtn {
+    0% { box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
+    100% { box-shadow: 0 8px 35px rgba(255, 154, 0, 0.5); }
+}
+
+/* Garantir que o body permita elementos fixed */
+body {
+    overflow: auto;
+    position: relative;
+}
+
+/* Adicione um elemento para texto de progresso se quiser */
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #5f27cd;
+}
+}

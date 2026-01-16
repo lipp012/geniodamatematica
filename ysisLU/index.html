@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gênio da Matemática - Extreme Kids</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Tela Inicial -->
+    <div class="container fade-in" id="start-screen">
+        <h1>🧮 Gênio da Matemática</h1>
+        <p class="subtitle">Edição Infantil - Caça ao Tesouro</p>
+        
+        <div class="input-group">
+            <label for="player-name">📝 Seu Nome:</label>
+            <input type="text" id="player-name" placeholder="Digite seu nome..." maxlength="12">
+        </div>
+
+        <div class="rules-box">
+            <p><strong>🎯 REGRAS DO GÊNIO:</strong></p>
+            <ul>
+                <li>❤️ Você tem 3 vidas - Errou? Perde uma vida!</li>
+                <li>🔍 Algumas respostas fugiram da caixa!</li>
+                <li>✨ Procure nos cantos da tela...</li>
+                <li>⭐ Acabe todas as perguntas para vencer!</li>
+                <li>🏆 Sua pontuação vai para o ranking!</li>
+            </ul>
+        </div>
+        
+        <button class="btn btn-start" onclick="startGame()">🚀 COMEÇAR DESAFIO</button>
+        <button class="btn btn-rank" onclick="showRanking()">🏆 VER RANKING</button>
+        
+        <div class="age-info">
+            <p>🎈 Para crianças de 8 a 12 anos</p>
+        </div>
+    </div>
+
+    <!-- Tela do Jogo -->
+    <div class="container hidden" id="game-screen">
+        <div class="header-bar">
+            <div class="timer">⏱️ Tempo: <span id="time-display">0</span>s</div>
+            <div class="question-count">❓ Pergunta: <span id="q-num">1</span>/100</div>
+        </div>
+        
+        <!-- Sistema de Vidas -->
+        <div class="lives-container" id="lives-container">
+            <span>❤️ Vidas:</span>
+            <!-- Os corações serão adicionados via JavaScript -->
+        </div>
+        
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+        </div>
+
+        <div class="question-container">
+            <div class="question-emoji">🤔</div>
+            <div class="question-text" id="question">Carregando pergunta...</div>
+        </div>
+        
+        <div class="options-grid" id="options-container">
+            <!-- As opções serão adicionadas via JavaScript -->
+        </div>
+        
+        <div class="game-hint">
+            <p>💡 Dica: Cuidado com as respostas que brilham muito!</p>
+        </div>
+    </div>
+
+    <!-- Tela de Game Over -->
+    <div class="container hidden" id="game-over-screen">
+        <h2 class="shake">😢 GAME OVER!</h2>
+        <p>Você perdeu todas as vidas!</p>
+        <div class="score-display">
+            <p>📊 Pontuação Final: <span id="final-score">0</span> pontos</p>
+            <p>⏱️ Tempo: <span id="game-over-time">0</span>s</p>
+        </div>
+        <button class="restart-btn" onclick="restartGame()">🔄 Tentar Novamente</button>
+        <button class="btn-rank secondary" onclick="backToMenu()">🏠 Menu Principal</button>
+    </div>
+
+    <!-- Tela de Vitória -->
+    <div class="container hidden" id="win-screen">
+        <h1>🎉 PARABÉNS! 🥳</h1>
+        <p>Você é um verdadeiro Gênio da Matemática!</p>
+        
+        <div class="trophy-container">
+            <div class="trophy">🏆</div>
+        </div>
+        
+        <div class="final-stats">
+            <p class="final-time">⏱️ Tempo total: <span id="final-time-display">0</span>s</p>
+            <p class="final-score">⭐ Pontuação: <span id="win-score">100</span>/100</p>
+            <p class="perfect-score">✨ PERFEITO! ✨</p>
+        </div>
+        
+        <button class="restart-btn" onclick="backToMenu()">🎮 Voltar ao Menu</button>
+        <button class="btn-rank" onclick="showRanking()">🏆 Ver Ranking</button>
+    </div>
+
+    <!-- Tela de Ranking -->
+    <div class="container hidden" id="ranking-screen">
+        <h2>🏆 Hall da Fama 🏆</h2>
+        <p class="ranking-subtitle">Top 10 Melhores Jogadores</p>
+        
+        <div class="podium">
+            <div class="podium-place second">
+                <div class="podium-number">2º</div>
+                <div class="podium-emoji">🥈</div>
+            </div>
+            <div class="podium-place first">
+                <div class="podium-number">1º</div>
+                <div class="podium-emoji">🥇</div>
+            </div>
+            <div class="podium-place third">
+                <div class="podium-number">3º</div>
+                <div class="podium-emoji">🥉</div>
+            </div>
+        </div>
+        
+        <div class="ranking-list-container">
+            <ul id="ranking-list">
+                <!-- Ranking será carregado via JavaScript -->
+            </ul>
+        </div>
+        
+        <div class="ranking-info">
+            <p>📊 O ranking é atualizado automaticamente</p>
+            <p>⭐ Pontuação = acertos + bônus por velocidade</p>
+        </div>
+        
+        <button class="btn-rank secondary" onclick="backToMenu()">↩️ Voltar ao Menu</button>
+        <button class="restart-btn" onclick="startGame()">🎯 Jogar Agora</button>
+    </div>
+
+    <!-- Efeitos Visuais -->
+    <div class="stars"></div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
